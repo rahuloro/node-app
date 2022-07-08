@@ -19,6 +19,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 14
+    - name: Folder Setup
     - run: |
         mkdir -p ~/my-app
         cp -r * ~/my-app
