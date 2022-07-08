@@ -23,7 +23,7 @@ jobs:
         mkdir -p ~/my-app
         cp -r * ~/my-app
         cd ~/my-app
-        npm i
+        npm ci
         npm test
         pm2 restart nodeApp
         pwd
