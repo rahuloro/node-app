@@ -30,4 +30,3 @@ jobs:
         npm ci
         npm test
         pm2 restart nodeApp
-        pwd
