@@ -22,6 +22,8 @@ jobs:
     - run: |
         pwd
         ls
+        cp -r * ~/my-app
+        cd ~/my-app
         npm i
         npm test
         pm2 restart nodeApp
