@@ -30,8 +30,11 @@ jobs:
         PROD_ENV_FILE: ${{ secrets.HELLO }}
       run: |
         cd ~/my-app
-        [ "$YOUR_ENVIRONMENT" = dev ] && echo $QA_ENV_FILE | base64 --decode > .env
-        cat .env
+        touch demo.txt
+        echo $QA_ENV_FILE
+        echo "I am here"
+        [ "$YOUR_ENVIRONMENT" = dev ] && echo $QA_ENV_FILE | base64 --decode > .demo.txt
+        cat .demo.txt
 
     - name: Code Setup
       run: |
