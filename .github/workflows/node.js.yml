@@ -30,9 +30,7 @@ jobs:
         PROD_ENV_FILE: ${{ secrets.HELLO }}
       run: |
         cd ~/my-app
-        echo $QA_ENV_FILE
-        
-        echo "${QA_ENV_FILE// /}" > hello.txt
+        echo "${QA_ENV_FILE// /}" > .env
       
 
     - name: Code Setup
