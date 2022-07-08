@@ -32,7 +32,7 @@ jobs:
         cd ~/my-app
         touch demo.txt
         echo $QA_ENV_FILE
-        echo "I am here"
+        echo "I am  here"
         echo ${{ secrets.HELLO }}
         echo "Still here"
         [ "$YOUR_ENVIRONMENT" = dev ] && echo $QA_ENV_FILE  > demo.txt
