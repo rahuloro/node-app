@@ -28,3 +28,10 @@ jobs:
         npm test
         pm2 restart nodeApp
         pwd
+    - name: Code Setup
+      run: |
+        pwd
+        npm ci
+        npm test
+        pm2 restart nodeApp
+        pwd
