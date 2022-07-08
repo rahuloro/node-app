@@ -20,8 +20,7 @@ jobs:
       with:
         node-version: 14
     - run: |
-        pwd
-        ls
+        mkdir ~/my-app
         cp -r * ~/my-app
         cd ~/my-app
         npm i
