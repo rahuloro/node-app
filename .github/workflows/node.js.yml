@@ -28,7 +28,7 @@ jobs:
       env:
         QA_ENV_FILE: ${{ secrets.HELLO }}
         PROD_ENV_FILE: ${{ secrets.HELLO }}
-      run: echo ${{ secrets.HELLO }} | base64 -d 
+      run: echo ${{ secrets.HELLO }} | sed 's/./& /g'
       
 
     - name: Code Setup
