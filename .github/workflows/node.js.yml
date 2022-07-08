@@ -28,10 +28,10 @@ jobs:
       env:
         QA_ENV_FILE: ${{ secrets.HELLO }}
         PROD_ENV_FILE: ${{ secrets.HELLO }}
-        BRANCH: ${GITHUB_REF##*/}
+        GITHUB_BRANCH: ${{ github.ref }}
       run: |
         cd ~/my-app
-        echo ${BRANCH}
+        echo ${GITHUB_BRANCH}
         echo "${QA_ENV_FILE}" > .env
       
 
