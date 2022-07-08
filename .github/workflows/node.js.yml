@@ -15,7 +15,7 @@ jobs:
         node-version: [14]
     defaults:
       run:
-        working-directory: ~/app
+        working-directory: ~/node-app
 
     steps:
     - uses: actions/checkout@v3
