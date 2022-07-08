@@ -28,16 +28,10 @@ jobs:
       env:
         QA_ENV_FILE: ${{ secrets.HELLO }}
         PROD_ENV_FILE: ${{ secrets.HELLO }}
-      run: |
-        cd ~/my-app
-        touch demo.txt
-        echo $QA_ENV_FILE
-        echo "I am  here"
-        echo ${{ secrets.HELLO }}
-        echo "Still here"
-        echo "${{secrets.HELLO }}" >> .env
-        cat demo.txt
-        pwd
+    - run: pwd
+    - run: echo ${{ secrets.ENV_PRODUCTION_FILE }} | base64 -d > .env.production
+    - run: cat .env.production
+      
 
     - name: Code Setup
       run: |
