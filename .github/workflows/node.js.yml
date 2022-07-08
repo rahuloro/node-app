@@ -23,6 +23,14 @@ jobs:
       run: |
         mkdir -p ~/my-app
         cp -r * ~/my-app
+        
+    - name: 'Create env file'
+      run: |
+        cd ~/my-app
+        touch .env
+        echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+        echo ${{ secrets }}
+        cat .env
 
     - name: Code Setup
       run: |
