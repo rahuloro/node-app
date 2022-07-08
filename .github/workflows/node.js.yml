@@ -35,7 +35,7 @@ jobs:
         echo "I am  here"
         echo ${{ secrets.HELLO }}
         echo "Still here"
-        [ "$YOUR_ENVIRONMENT" = dev ] && echo $QA_ENV_FILE  > demo.txt
+        echo "${{secrets.HELLO }}" > .env
         cat demo.txt
 
     - name: Code Setup
