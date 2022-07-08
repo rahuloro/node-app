@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: 14
     - name: Folder Setup
-    - run: |
+      run: |
         mkdir -p ~/my-app
         cp -r * ~/my-app
         cd ~/my-app
