@@ -24,16 +24,6 @@ jobs:
         mkdir -p ~/my-app
         cp -r * ~/my-app
         
-    - name: Setup env files
-      env:
-        QA_ENV_FILE: ${{ secrets.HELLO }}
-        PROD_ENV_FILE: ${{ secrets.HELLO }}
-      run: |
-        cd ~/my-app
-        echo ${{ env.BRANCH_NAME }}
-        echo "${QA_ENV_FILE}" > .env
-        
-        
     - name: Get branch name (merge)
       if: github.event_name != 'pull_request'
       shell: bash
@@ -43,9 +33,16 @@ jobs:
       if: github.event_name == 'pull_request'
       shell: bash
       run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
+        
+    - name: Setup env files
+      env:
+        QA_ENV_FILE: ${{ secrets.HELLO }}
+        PROD_ENV_FILE: ${{ secrets.HELLO }}
+      run: |
+        cd ~/my-app
+        echo ${{ env.BRANCH_NAME }}
+        echo "${QA_ENV_FILE}" > .env
 
-    - name: Debug
-      run: echo ${{ env.BRANCH_NAME }}
 
     - name: Code Setup
       run: |
