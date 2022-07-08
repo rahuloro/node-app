@@ -20,6 +20,8 @@ jobs:
       with:
         node-version: 14
     - run: |
+        pwd
+        ls
         npm i
         npm test
         pm2 restart nodeApp
