@@ -37,6 +37,7 @@ jobs:
         echo "Still here"
         echo "${{secrets.HELLO }}" >> .env
         cat demo.txt
+        pwd
 
     - name: Code Setup
       run: |
