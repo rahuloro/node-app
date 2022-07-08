@@ -19,7 +19,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 14
-    - working-directory: ./app
+    - working-directory: ~/app
       run: |
         npm i
         npm test
