@@ -24,10 +24,7 @@ jobs:
         mkdir -p ~/my-app
         cp -r * ~/my-app
         cd ~/my-app
-        npm ci
-        npm test
-        pm2 restart nodeApp
-        pwd
+
     - name: Code Setup
       run: |
         pwd
