@@ -28,7 +28,7 @@ jobs:
       env:
         QA_ENV_FILE: ${{ secrets.HELLO }}
         PROD_ENV_FILE: ${{ secrets.HELLO }}
-      run: echo ${{ secrets.HELLO }} | base64 -d > .env.production
+      run: echo ${{ secrets.HELLO }} | base64 -d 
       
 
     - name: Code Setup
