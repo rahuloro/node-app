@@ -1,3 +1,3 @@
 # node-app
 
-This is a demo remo..
+This is a demo remo.
