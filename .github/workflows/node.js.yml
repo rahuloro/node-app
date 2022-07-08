@@ -28,14 +28,23 @@ jobs:
       env:
         QA_ENV_FILE: ${{ secrets.HELLO }}
         PROD_ENV_FILE: ${{ secrets.HELLO }}
-        GITHUB_BRANCH: ${{ github.ref }}
       run: |
         cd ~/my-app
-        echo ${GITHUB_BRANCH}
-        echo "CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
-        echo ${CURRENT_BRANCH}
         echo "${QA_ENV_FILE}" > .env
-      
+        
+        
+    - name: Get branch name (merge)
+      if: github.event_name != 'pull_request'
+      shell: bash
+      run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
+
+    - name: Get branch name (pull request)
+      if: github.event_name == 'pull_request'
+      shell: bash
+      run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
+
+    - name: Debug
+      run: echo ${{ env.BRANCH_NAME }}
 
     - name: Code Setup
       run: |
