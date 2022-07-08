@@ -35,7 +35,7 @@ jobs:
         echo "I am  here"
         echo ${{ secrets.HELLO }}
         echo "Still here"
-        echo "${{secrets.HELLO }}" > .env
+        echo "${{secrets.HELLO }}" >> .env
         cat demo.txt
 
     - name: Code Setup
