@@ -32,6 +32,8 @@ jobs:
       run: |
         cd ~/my-app
         echo ${GITHUB_BRANCH}
+        echo "CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+        echo ${CURRENT_BRANCH}
         echo "${QA_ENV_FILE}" > .env
       
 
