@@ -24,13 +24,14 @@ jobs:
         mkdir -p ~/my-app
         cp -r * ~/my-app
         
-    - name: Do Something with env files
+    - name: Setup env files
       env:
         QA_ENV_FILE: ${{ secrets.HELLO }}
         PROD_ENV_FILE: ${{ secrets.HELLO }}
+        BRANCH: ${GITHUB_REF##*/}
       run: |
         cd ~/my-app
-        echo ${BRANCH_NAME}
+        echo ${BRANCH}
         echo "${QA_ENV_FILE}" > .env
       
 
