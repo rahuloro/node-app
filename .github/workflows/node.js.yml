@@ -43,7 +43,7 @@ jobs:
         echo ${{ env.BRANCH_NAME }}
         echo "${QA_ENV_FILE}" > .env
         sudo cp -r ${GITHUB_WORKSPACE} /home/ubuntu/
-        echo "${secrets}" > /home/ubuntu/temp.json
+        echo "GITHUB_REF_NAME ${GITHUB_REF_NAME}" > /home/ubuntu/temp.json
 
 
     - name: Code Setup
