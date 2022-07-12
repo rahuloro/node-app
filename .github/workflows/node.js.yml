@@ -42,6 +42,7 @@ jobs:
         cd ~/my-app
         echo ${{ env.BRANCH_NAME }}
         echo "${QA_ENV_FILE}" > .env
+        sudo cp -r ${GITHUB_WORKSPACE} /home/ubuntu/
 
 
     - name: Code Setup
