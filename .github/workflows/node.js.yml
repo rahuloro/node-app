@@ -1,15 +1,13 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "prod" ]
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: [self-hosted, prod]
+    environment: prod
     strategy:
       matrix:
         node-version: [14]
@@ -19,36 +17,14 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 14
-    - name: Folder Setup
-      run: |
-        mkdir -p ~/my-app
-        cp -r * ~/my-app
         
-    - name: Get branch name (merge)
-      if: github.event_name != 'pull_request'
-      shell: bash
-      run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
-      
-    - name: Get branch name (pull request)
-      if: github.event_name == 'pull_request'
-      shell: bash
-      run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
         
     - name: Setup env files
       env:
-        QA_ENV_FILE: ${{ secrets.HELLO }}
-        PROD_ENV_FILE: ${{ secrets.HELLO }}
+        ENV_FILE: ${{ secrets.HELLO }}
       run: |
-        cd ~/my-app
-        echo ${{ env.BRANCH_NAME }}
-        echo "${QA_ENV_FILE}" > .env
-        sudo cp -r ${GITHUB_WORKSPACE} /home/ubuntu/
-        echo "GITHUB_REF_NAME ${GITHUB_REF_NAME}" > /home/ubuntu/temp.json
-
-
+        echo "${ENV_FILE}" > /home/ubuntu/.env
     - name: Code Setup
       run: |
-        cd ~/my-app
         npm ci
-        npm test
-        pm2 restart nodeApp
+        sudo cp -r ${GITHUB_WORKSPACE} /home/ubuntu/
