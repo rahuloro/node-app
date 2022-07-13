@@ -1,13 +1,16 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
 name: Node.js CI
 
 on:
   push:
-    branches: [ "prod" ]
+    branches: [main, prod]
 
 jobs:
   build:
-    runs-on: [self-hosted, prod]
-    environment: prod
+    runs-on: [self-hosted, "${GITHUB_REF#refs/heads/}"]
+    environment: dev
     strategy:
       matrix:
         node-version: [14]
@@ -24,6 +27,9 @@ jobs:
         ENV_FILE: ${{ secrets.HELLO }}
       run: |
         echo "${ENV_FILE}" > /home/ubuntu/.env
+        echo ${{ steps.runner.outputs.runner }} > /home/ubuntu/etmp
+
+
     - name: Code Setup
       run: |
         npm ci
