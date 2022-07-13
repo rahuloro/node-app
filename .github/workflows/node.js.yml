@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, "${GITHUB_REF#refs/heads/}"]
+    runs-on: ${GITHUB_REF#refs/heads/}
     environment: dev
     strategy:
       matrix:
