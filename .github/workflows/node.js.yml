@@ -33,4 +33,4 @@ jobs:
       run: |
         npm ci
         sudo cp -r ${GITHUB_WORKSPACE} /home/ubuntu/
-        echo "${ENV_FILE}" > /home/ubuntu/node-app/.env
+        sudo echo "${ENV_FILE}" > /home/ubuntu/node-app/.env
