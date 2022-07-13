@@ -4,8 +4,6 @@ require('dotenv').config();
 const port = process.env.PORT || 3000;
 
 
-console.log(process.env.ENV);
-
 app.get('/', (req, res) => {
   return res.send(`Hello World! from', ${process.env.ENV}`)
 })
