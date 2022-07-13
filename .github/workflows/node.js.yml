@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: [ self-hosted, '${{ secrets.BRANCH }}' ]
+    runs-on: [ self-hosted, '${{BRANCH_NAME}}' ]
     environment: dev
     strategy:
       matrix:
@@ -25,6 +25,7 @@ jobs:
     - name: Setup env files
       env:
         ENV_FILE: ${{ secrets.HELLO }}
+        BRANCH_NAME: ${{ secrets.BRANCH }}
       run: |
         echo "${ENV_FILE}" > /home/ubuntu/.env
         echo ${{ steps.runner.outputs.runner }} > /home/ubuntu/etmp
