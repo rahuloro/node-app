@@ -38,3 +38,4 @@ jobs:
       run: |
         npm ci
         sudo cp -r ${GITHUB_WORKSPACE} /home/ubuntu/
+        sudo cp .env node-app/.env
