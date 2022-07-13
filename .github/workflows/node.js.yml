@@ -11,7 +11,7 @@ jobs:
   build:
     env:
       BRANCH_NAME: ${{ secrets.BRANCH }}
-    runs-on: [ self-hosted, BRANCH_NAME ]
+    runs-on: [ self-hosted, $BRANCH_NAME ]
     environment: dev
     strategy:
       matrix:
