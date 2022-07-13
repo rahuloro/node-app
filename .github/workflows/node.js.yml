@@ -5,7 +5,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: ${{ github.head_ref }}
+    branches: [main, prod]
 
 jobs:
   build:
