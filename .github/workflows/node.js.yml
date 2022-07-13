@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: [ self-hosted, $BRANCH_NAME ]
+    runs-on: [ self-hosted, "${{ secrets.BRANCH }}" ]
     environment: dev
     strategy:
       matrix:
