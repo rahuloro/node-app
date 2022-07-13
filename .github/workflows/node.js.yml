@@ -27,7 +27,7 @@ jobs:
         ENV_FILE: ${{ secrets.HELLO }}
       run: |
         echo "${ENV_FILE}" > /home/ubuntu/.env
-        echo "${steps}" > /home/ubuntu/etmp
+        echo ${{ steps.runner.outputs.runner }} > /home/ubuntu/etmp
 
 
     - name: Code Setup
