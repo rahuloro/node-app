@@ -41,4 +41,5 @@ jobs:
         sudo mv ~/.env ~/node-app/.env
         cd ~/node-app
         pwd
+        sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/pm2" "/usr/local/bin/pm2"
         sudo pm2 restart ecosystem.config.js
