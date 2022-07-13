@@ -39,7 +39,3 @@ jobs:
         npm ci
         sudo cp -r ${GITHUB_WORKSPACE} /home/ubuntu/
         sudo mv ~/.env ~/node-app/.env
-        cd ~
-        pwd
-        chmod +x ~/pm2_runner.sh
-        bash ./pm2_runner.sh
