@@ -9,9 +9,7 @@ on:
 
 jobs:
   build:
-    env:
-      BRANCH_NAME: ${{ secrets.BRANCH }}
-    runs-on: [ self-hosted, '${ BRANCH_NAME}' ]
+    runs-on: [ self-hosted, "${GITHUB_REF##*/}" ]
     environment: dev
     strategy:
       matrix:
