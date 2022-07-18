@@ -40,4 +40,5 @@ jobs:
         sudo cp -r ${GITHUB_WORKSPACE} /home/ubuntu/
         sudo mv ~/.env ~/node-app/.env
         cd ~/node-app
+        pwd
         pm2 restart all
