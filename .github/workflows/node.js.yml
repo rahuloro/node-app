@@ -41,4 +41,4 @@ jobs:
         sudo mv ~/.env ~/node-app/.env
         cd ~/node-app
         pwd
-        pm2 restart all
+        sudo pm2 restart all
