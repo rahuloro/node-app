@@ -39,4 +39,5 @@ jobs:
         npm ci
         sudo cp -r ${GITHUB_WORKSPACE} /home/ubuntu/
         sudo mv ~/.env ~/node-app/.env
+        cd ~/node-app
         pm2 restart all
